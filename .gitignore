@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Large Model Files (Base Model & Checkpoints)
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.gguf
+
+# Allow config files though
+!config.json
+!tokenizer.json
+!tokenizer_config.json
+!generation_config.json
+!adapter_config.json
+
+# Allow adapter weights if desired (uncomment if you want to commit the adapter)
+# !lora-adapter/adapter_model.safetensors
+
+# Training Output
+lora-adapter/
+runs/
+output/
+logs/
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
