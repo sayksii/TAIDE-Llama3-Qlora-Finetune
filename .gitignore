@@ -6,23 +6,8 @@ __pycache__/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Large Model Files (Base Model & Checkpoints)
-*.safetensors
-*.bin
-*.pt
-*.pth
-*.onnx
-*.gguf
-
-# Allow config files though
-!config.json
-!tokenizer.json
-!tokenizer_config.json
-!generation_config.json
-!adapter_config.json
-
-# Allow adapter weights if desired (uncomment if you want to commit the adapter)
-# !lora-adapter/adapter_model.safetensors
+# Model weights (too large for git)
+model/
 
 # Training Output
 lora-adapter/

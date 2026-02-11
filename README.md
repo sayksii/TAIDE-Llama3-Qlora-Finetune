@@ -32,9 +32,10 @@
 
 ```bash
 # 1. 安裝依賴
-pip install peft trl accelerate bitsandbytes
+pip install peft trl accelerate bitsandbytes bert-score
 
 # 2. 開始微調 (預設 1 epoch)
+cd scripts
 python finetune_lora.py --epochs 3
 
 # 3. 測試並比較結果
@@ -43,11 +44,12 @@ python compare_models.py
 
 ## 專案結構
 
-- `finetune_lora.py`: 微調主程式
-- `run_taide.py`: 聊天主程式
-- `compare_models.py`: 模型比較工具
-- `QUICKSTART.md`: 詳細指令說明
-- `REPORT.md`: LoRA 指標說明 (Loss & Accuracy)
+- `scripts/finetune_lora.py`: 微調主程式
+- `scripts/run_taide.py`: 聊天主程式
+- `scripts/compare_models.py`: 模型比較工具
+- `scripts/eval_bertscore.py`: BERTScore 評估工具
+- `docs/REPORT.md`: LoRA 指標說明 (Loss & Accuracy)
+- `results/`: 評估結果輸出目錄
 - `lora-adapter/`: 微調後的權重 (Adapter) 輸出目錄
 
 ## 硬體需求

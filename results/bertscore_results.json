@@ -1,0 +1,41 @@
+{
+  "config": {
+    "num_samples": 2,
+    "adapter_path": "./lora-adapter",
+    "bert_model": "bert-base-chinese",
+    "max_new_tokens": 50,
+    "seed": 42
+  },
+  "summary": {
+    "base": {
+      "precision": 0.715320348739624,
+      "recall": 0.6286869049072266,
+      "f1": 0.6688963174819946
+    },
+    "lora": {
+      "precision": 0.7993614673614502,
+      "recall": 0.6686047315597534,
+      "f1": 0.7277951240539551
+    }
+  },
+  "details": [
+    {
+      "question": "Seagate 推出的 24TB 硬碟有哪些型號？",
+      "reference": "Seagate 最近推出了兩款 24TB 的硬碟型號，分別是適用於 NAS 設備的 **IronWolf Pro 24TB** 和企業級解決方案 **Exos X24**。這兩款硬碟分別滿足了創作者、個人玩家、小型工作室以及企業級的機架式硬碟需求，提供了大容量和高效能的儲存解決方案。",
+      "base_pred": "Seagate 推出的 24TB 硬碟是近期的高容量儲存解決方案之一。根據我的資料，Seagate 推出的 24TB 硬碟可能是：\n\n1. Seagate Exos H4 (24TB)：這",
+      "lora_pred": "Seagate 近期推出了兩款 24TB 的硬碟型號，分別是 **IronWolf Pro 24TB** 和 **Exos X24**。這兩款硬碟主要針對不同的市場和應用進行設計，例如 **Iron",
+      "base_f1": 0.6901944875717163,
+      "lora_f1": 0.7780280709266663,
+      "f1_diff": 0.08783358335494995
+    },
+    {
+      "question": "AORUS WATERFORCE II 360 的風扇設計有什麼特點？",
+      "reference": "AORUS WATERFORCE II 360 的風扇設計具有以下幾個特點：\n\n1. **葉片大小不一**：在風扇的設計上，AORUS WATERFORCE II 360 採用了不同大小的葉片，上方的葉片較小，下方的葉片較大。這種設計有助於更快速地將空氣引入，並更有效率地壓縮引入的空氣流，提高進氣效率。\n\n2. **噪音和振動控制**：透過這種創新的葉片設計，風扇在不提高轉速的前提下，能夠有效提升",
+      "base_pred": "AORUS WATERFORCE II 360 的風扇設計特點，作為一位專業的電腦硬體評測人員，我將為你提供詳細的分析：\n\nAORUS WATERFORCE II 360 的風扇設計，可能擁有以下特點：\n\n1.",
+      "lora_pred": "AORUS WATERFORCE II 360 的風扇設計具有以下特點：\n\n        ### 風扇設計特點\n        - **風扇數量與尺寸**：配備 4 顆 3 吋的 12 公分扇風，這些",
+      "base_f1": 0.6475982069969177,
+      "lora_f1": 0.6775621175765991,
+      "f1_diff": 0.029963910579681396
+    }
+  ]
+}
