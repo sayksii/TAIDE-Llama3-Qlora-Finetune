@@ -46,9 +46,9 @@ def main():
     parser = argparse.ArgumentParser(description="BERTScore 評估微調前後模型")
     parser.add_argument("--model-path", type=str, default="../model",
                         help="基礎模型路徑")
-    parser.add_argument("--adapter-path", type=str, default="../lora-adapter",
+    parser.add_argument("--adapter-path", type=str, default="../lora-adapter/checkpoint-200",
                         help="LoRA adapter 路徑")
-    parser.add_argument("--num-samples", type=int, default=50,
+    parser.add_argument("--num-samples", type=int, default=10,
                         help="從資料集取樣幾筆來測試")
     parser.add_argument("--max-new-tokens", type=int, default=256,
                         help="每個回答最多產生的 token 數")

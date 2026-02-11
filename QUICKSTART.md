@@ -75,6 +75,27 @@ python compare_models.py --questions "什麼是防火牆？" "如何設定 VPN�
 python compare_models.py --adapter-path ../lora-adapter/checkpoint-200
 ```
 
+## LLM-as-Judge 評估 (推薦)
+
+使用 Groq Llama-3 70B 作為評審，比對微調前後的回答品質。
+
+```bash
+cd scripts
+
+# 設定 Groq API Key (Windows PowerShell)
+$env:GROQ_API_KEY="gsk_xxxx"
+
+# 一次完成生成+評分 (10 筆資料)
+python eval_llm_judge.py all --num-samples 10
+
+# 分階段執行：
+# 1. 生成回答 (需 GPU)
+python eval_llm_judge.py generate --num-samples 10
+
+# 2. 評分 (不需 GPU，需連網)
+python eval_llm_judge.py judge
+```
+
 ## BERTScore 評估
 
 ```bash
@@ -86,3 +107,4 @@ python eval_bertscore.py
 # 快速測試（2 筆）
 python eval_bertscore.py --num-samples 2 --max-new-tokens 50
 ```
+
