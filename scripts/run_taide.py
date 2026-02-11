@@ -1,4 +1,5 @@
 import argparse
+import os
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers import BitsAndBytesConfig
@@ -121,8 +122,9 @@ def main():
     max_tokens = args.max_tokens
     max_new_tokens = args.max_new_tokens
 
-    # 2. 指定模型資料夾路徑
-    model_path = "../model"
+    # 2. resolve model path
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.normpath(os.path.join(script_dir, "../model"))
 
     # 3. 載入 Tokenizer（移除 use_fast=False，使用預設的 fast tokenizer）
     tokenizer = AutoTokenizer.from_pretrained(model_path)

@@ -1,4 +1,5 @@
 import argparse
+import os
 import torch
 from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
@@ -41,6 +42,11 @@ def main():
     parser.add_argument("--max-steps", type=int, default=-1,
                         help="若 > 0，則只訓練這麼多 steps（用於測試）")
     args = parser.parse_args()
+
+    # resolve relative paths
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    args.model_path = os.path.normpath(os.path.join(script_dir, args.model_path))
+    args.output_dir = os.path.normpath(os.path.join(script_dir, args.output_dir))
 
     # ─── 1. 載入 Tokenizer ───
     print("載入 tokenizer...")

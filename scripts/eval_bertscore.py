@@ -9,6 +9,7 @@ BERTScore 評估腳本：比較 Base Model 與 LoRA Model 的回答品質。
 """
 
 import argparse
+import os
 import json
 import random
 import torch
@@ -46,17 +47,22 @@ def main():
     parser = argparse.ArgumentParser(description="BERTScore 評估微調前後模型")
     parser.add_argument("--model-path", type=str, default="../model",
                         help="基礎模型路徑")
-    parser.add_argument("--adapter-path", type=str, default="../lora-adapter/checkpoint-200",
+    parser.add_argument("--adapter-path", type=str, default="../lora-adapter/checkpoint-250",
                         help="LoRA adapter 路徑")
     parser.add_argument("--num-samples", type=int, default=10,
                         help="從資料集取樣幾筆來測試")
-    parser.add_argument("--max-new-tokens", type=int, default=256,
+    parser.add_argument("--max-new-tokens", type=int, default=512,
                         help="每個回答最多產生的 token 數")
     parser.add_argument("--seed", type=int, default=42,
                         help="隨機種子（確保每次取樣一致）")
     parser.add_argument("--bert-model", type=str, default="bert-base-chinese",
                         help="BERTScore 使用的 BERT 模型")
     args = parser.parse_args()
+
+    # resolve relative paths (based on script location)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    args.model_path = os.path.normpath(os.path.join(script_dir, args.model_path))
+    args.adapter_path = os.path.normpath(os.path.join(script_dir, args.adapter_path))
 
     random.seed(args.seed)
 

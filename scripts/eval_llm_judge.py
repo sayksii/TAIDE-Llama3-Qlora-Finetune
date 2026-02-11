@@ -17,8 +17,9 @@ from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from peft import PeftModel
 
-ANSWERS_FILE = "../results/answers.json"
-RESULTS_FILE = "../results/judge_results.json"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ANSWERS_FILE = os.path.normpath(os.path.join(SCRIPT_DIR, "../results/answers.json"))
+RESULTS_FILE = os.path.normpath(os.path.join(SCRIPT_DIR, "../results/judge_results.json"))
 
 JUDGE_SYSTEM_PROMPT = """你是一位嚴格且公正的 AI 回答品質評審。你的任務是評估兩個模型對同一個問題的回答品質。
 請根據提供的「標準答案」作為參考，從以下四個維度分別為每個模型的回答打分（1-10 分）。
@@ -351,6 +352,12 @@ def main():
     all_parser.add_argument("--seed", type=int, default=42)
 
     args = parser.parse_args()
+
+    # resolve relative paths
+    if hasattr(args, 'model_path'):
+        args.model_path = os.path.normpath(os.path.join(SCRIPT_DIR, args.model_path))
+    if hasattr(args, 'adapter_path'):
+        args.adapter_path = os.path.normpath(os.path.join(SCRIPT_DIR, args.adapter_path))
 
     if args.command == "generate":
         run_generate(args)

@@ -1,4 +1,5 @@
 import argparse
+import os
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from peft import PeftModel
@@ -47,6 +48,11 @@ def main():
     parser.add_argument("--questions", nargs="+", default=None,
                         help="自訂測試問題（可多個）")
     args = parser.parse_args()
+
+    # resolve relative paths
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    args.model_path = os.path.normpath(os.path.join(script_dir, args.model_path))
+    args.adapter_path = os.path.normpath(os.path.join(script_dir, args.adapter_path))
 
     questions = args.questions if args.questions else DEFAULT_QUESTIONS
 
