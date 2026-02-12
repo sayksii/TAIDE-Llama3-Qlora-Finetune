@@ -135,8 +135,9 @@ def main():
 
     # 5. 若指定了 adapter，載入 LoRA
     if args.adapter_path:
-        print(f"載入 LoRA adapter: {args.adapter_path}")
-        model = PeftModel.from_pretrained(model, args.adapter_path)
+        adapter_path = os.path.normpath(os.path.join(script_dir, args.adapter_path))
+        print(f"載入 LoRA adapter: {adapter_path}")
+        model = PeftModel.from_pretrained(model, adapter_path)
         print("LoRA adapter 已載入。")
 
     print("模型與 tokenizer 已載入。輸入 'exit' 或按 Ctrl-D 結束。")

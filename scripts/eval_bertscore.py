@@ -197,7 +197,9 @@ def main():
             "f1_diff": f1_diff[i].item(),
         })
 
-    output_file = "../results/bertscore_results.json"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    output_file = os.path.normpath(os.path.join(script_dir, "../results/bertscore_results.json"))
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
     print(f"\n詳細結果已保存到 {output_file}")

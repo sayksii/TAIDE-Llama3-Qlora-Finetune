@@ -27,5 +27,3 @@ ENV/
 .vscode/
 .idea/
 *.swp
-
-results/

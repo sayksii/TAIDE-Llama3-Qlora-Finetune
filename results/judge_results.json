@@ -1,0 +1,155 @@
+{
+  "config": {
+    "judge_model": "llama-3.3-70b-versatile",
+    "num_evaluated": 10,
+    "seed": 42
+  },
+  "summary": {
+    "correctness": {
+      "base": 3.7,
+      "lora": 5.7,
+      "diff": 2.0
+    },
+    "completeness": {
+      "base": 3.8,
+      "lora": 5.3,
+      "diff": 1.5
+    }
+  },
+  "total": {
+    "base": 3.75,
+    "lora": 5.5
+  },
+  "details": [
+    {
+      "question": "Seagate 推出的 24TB 硬碟有哪些型號？",
+      "base_scores": {
+        "correctness": 4,
+        "completeness": 6,
+        "comment": "模型 B 的回答包含了不正確的資訊和不相關的細節，缺乏標準答案中的關鍵內容。"
+      },
+      "lora_scores": {
+        "correctness": 9,
+        "completeness": 8,
+        "comment": "模型 A 的回答基本正確，但略去了標準答案中的一些細節。"
+      }
+    },
+    {
+      "question": "AORUS WATERFORCE II 360 的風扇設計有什麼特點？",
+      "base_scores": {
+        "correctness": 4,
+        "completeness": 3,
+        "comment": "雖然提供了一些可能的風扇設計特點，但缺乏具體的標準答案內容"
+      },
+      "lora_scores": {
+        "correctness": 2,
+        "completeness": 1,
+        "comment": "內容與標準答案不符，缺乏相關風扇設計特點的描述"
+      }
+    },
+    {
+      "question": "DJI OSMO Pocket 3的錄影功能有哪些升級？",
+      "base_scores": {
+        "correctness": 6,
+        "completeness": 8,
+        "comment": "提供了豐富的功能列表，但部分內容與標準答案不符"
+      },
+      "lora_scores": {
+        "correctness": 4,
+        "completeness": 4,
+        "comment": "提供的功能列表簡單，且部分內容不符標準答案"
+      }
+    },
+    {
+      "question": "OVO 推推閨蜜機 TT1 的螢幕規格有哪些特點？",
+      "base_scores": {
+        "correctness": 1,
+        "completeness": 2,
+        "comment": "資訊不正確且缺乏標準答案中的重要內容。"
+      },
+      "lora_scores": {
+        "correctness": 2,
+        "completeness": 4,
+        "comment": "提供的資訊與標準答案不符，缺乏關鍵細節。"
+      }
+    },
+    {
+      "question": "Epson EH-LS650 的智慧功能有哪些？",
+      "base_scores": {
+        "correctness": 1,
+        "completeness": 1,
+        "comment": "內容完全不符標準答案"
+      },
+      "lora_scores": {
+        "correctness": 2,
+        "completeness": 1,
+        "comment": "內容幾乎完全不符標準答案"
+      }
+    },
+    {
+      "question": "2023年底到2024年初，哪些旗艦手機在拍照功能上有顯著的進步？",
+      "base_scores": {
+        "correctness": 2,
+        "completeness": 2,
+        "comment": "內容與標準答案不符，提供了多餘的錯誤資訊"
+      },
+      "lora_scores": {
+        "correctness": 6,
+        "completeness": 4,
+        "comment": "提到了Xiaomi 13 Ultra，但未涵蓋標準答案中的所有重點"
+      }
+    },
+    {
+      "question": "TP-Link Tapo C420S2 智慧無線監控系統有哪些功能？",
+      "base_scores": {
+        "correctness": 2,
+        "completeness": 1,
+        "comment": "內容與標準答案不符，缺乏相關功能描述"
+      },
+      "lora_scores": {
+        "correctness": 8,
+        "completeness": 7,
+        "comment": "大致涵蓋了標準答案的主要功能，但仍有部分細節未被提及"
+      }
+    },
+    {
+      "question": "技嘉GS27Q電競螢幕的設計和外觀特色有哪些？",
+      "base_scores": {
+        "correctness": 7,
+        "completeness": 6,
+        "comment": "涵蓋了一些關鍵點，但缺乏標準答案中的部分細節"
+      },
+      "lora_scores": {
+        "correctness": 6,
+        "completeness": 8,
+        "comment": "提供了豐富的細節，但部分內容與標準答案不符"
+      }
+    },
+    {
+      "question": "vivo X100 Pro 的主鏡頭有哪些特點？",
+      "base_scores": {
+        "correctness": 2,
+        "completeness": 3,
+        "comment": "內容與標準答案不符，錯誤資訊較多"
+      },
+      "lora_scores": {
+        "correctness": 9,
+        "completeness": 8,
+        "comment": "內容基本正確，但略去了T*鍍膜技術"
+      }
+    },
+    {
+      "question": "SpotCam Solo Pro 在夜間的拍攝效果如何？",
+      "base_scores": {
+        "correctness": 8,
+        "completeness": 6,
+        "comment": "模型 A 的回答雖然正確，但缺乏標準答案中的一些關鍵細節。"
+      },
+      "lora_scores": {
+        "correctness": 9,
+        "completeness": 8,
+        "comment": "模型 B 的回答不僅正確，還涵蓋了標準答案中的大部分重點，表現出色。"
+      }
+    }
+  ]
+}

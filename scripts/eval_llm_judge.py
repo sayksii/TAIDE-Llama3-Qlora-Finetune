@@ -61,7 +61,7 @@ JUDGE_USER_TEMPLATE = """## 問題
 # 階段 1: generate — 本地模型生成回答
 # ═══════════════════════════════════════════════════
 
-def generate_answer(model, tokenizer, instruction, question, max_new_tokens=256):
+def generate_answer(model, tokenizer, instruction, question, max_new_tokens=512):
     """用模型生成一個回答"""
     messages = [
         {"role": "system", "content": instruction},
@@ -329,9 +329,9 @@ def main():
     # generate
     gen_parser = subparsers.add_parser("generate", help="生成 Base & LoRA 模型回答")
     gen_parser.add_argument("--model-path", type=str, default="../model")
-    gen_parser.add_argument("--adapter-path", type=str, default="../lora-adapter")
+    gen_parser.add_argument("--adapter-path", type=str, default="../lora-adapter/checkpoint-250")
     gen_parser.add_argument("--num-samples", type=int, default=10)
-    gen_parser.add_argument("--max-new-tokens", type=int, default=256)
+    gen_parser.add_argument("--max-new-tokens", type=int, default=512)
     gen_parser.add_argument("--seed", type=int, default=42)
 
     # judge
@@ -344,9 +344,9 @@ def main():
     # all
     all_parser = subparsers.add_parser("all", help="一次完成 generate + judge")
     all_parser.add_argument("--model-path", type=str, default="../model")
-    all_parser.add_argument("--adapter-path", type=str, default="../lora-adapter")
+    all_parser.add_argument("--adapter-path", type=str, default="../lora-adapter/checkpoint-250")
     all_parser.add_argument("--num-samples", type=int, default=10)
-    all_parser.add_argument("--max-new-tokens", type=int, default=256)
+    all_parser.add_argument("--max-new-tokens", type=int, default=512)
     all_parser.add_argument("--api-key", type=str, default=None)
     all_parser.add_argument("--judge-model", type=str, default="llama-3.3-70b-versatile")
     all_parser.add_argument("--seed", type=int, default=42)
