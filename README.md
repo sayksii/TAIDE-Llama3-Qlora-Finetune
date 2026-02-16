@@ -31,6 +31,15 @@
     - 使用外部 LLM (如 Groq Llama 70B) 評審微調前後模型的回答品質。
     - 評分維度：正確性 (Correctness) 與 完整性 (Completeness)。
 
+- **`eval_bertscore.py`**:
+    - BERTScore 評估工具。
+    - 計算微調前後模型回答與標準答案的語意相似度 (Precision, Recall, F1)。
+    - 輸出比較報告，並列出進步與退步最多的範例。
+
+- **`check_gpu.py`**:
+    - 簡單的 GPU 檢測工具。
+    - 確認 CUDA 是否可用，並列出 GPU 型號與 VRAM 大小。
+
 ## 快速開始
 
 詳細的操作指令請參考 **[QUICKSTART.md](./QUICKSTART.md)**。
