@@ -26,6 +26,11 @@
     - 並排比較「原始模型」與「微調後模型」的回答。
     - 內建網通測試問題集。
 
+- **`eval_llm_judge.py`**:
+    - LLM-as-Judge 評估工具。
+    - 使用外部 LLM (如 Groq Llama 70B) 評審微調前後模型的回答品質。
+    - 評分維度：正確性 (Correctness) 與 完整性 (Completeness)。
+
 ## 快速開始
 
 詳細的操作指令請參考 **[QUICKSTART.md](./QUICKSTART.md)**。
@@ -44,13 +49,22 @@ python compare_models.py
 
 ## 專案結構
 
-- `scripts/finetune_lora.py`: 微調主程式
-- `scripts/run_taide.py`: 聊天主程式
-- `scripts/compare_models.py`: 模型比較工具
-- `scripts/eval_bertscore.py`: BERTScore 評估工具
-- `docs/REPORT.md`: LoRA 指標說明 (Loss & Accuracy)
-- `results/`: 評估結果輸出目錄
-- `lora-adapter/`: 微調後的權重 (Adapter) 輸出目錄
+```text
+.
+├── scripts
+│   ├── finetune_lora.py      # 微調主程式
+│   ├── run_taide.py          # 聊天主程式
+│   ├── compare_models.py     # 模型比較工具
+│   ├── eval_llm_judge.py     # LLM-as-Judge 評估工具 (推薦)
+│   ├── eval_bertscore.py     # BERTScore 評估工具
+│   └── check_gpu.py          # GPU 檢測工具
+├── docs
+│   ├── LoRA 指標說明.md      # LoRA 指標說明 (Loss & Accuracy)
+│   └── taide官方 README.md   # TAIDE 官方說明文件
+├── model/                    # 原始模型 (Base Model) 存放目錄
+├── results/                  # 評估結果輸出目錄
+└── lora-adapter/             # 微調後的權重 (Adapter) 輸出目錄
+```
 
 ## 硬體需求
 
